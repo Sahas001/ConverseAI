@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ConverseAI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+    />
+
+
+  </head>
+  <body>   
+    <!-- <input id="imgInput" type="file" />
+      <button id="profileButton">Submit</button> -->
+    <div class="container pl-10 ml-8 pb-5 pt-5 flex justify-between">
+      <div class="flex"><img style="height: 30px;" src="assets/chatbot.png" ><p>ConverseAI</p></div>
+      <div>
+        <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white " src="assets/user.jpg"/>
+        <a class="mr-3" id="userName">User</a>
+        <button class="rounded-md bg-blue-500 p-2" id="logoutButton" type="submit">Logout</button></div>   
+    </div>
+    <div id="app">
+      <div id="chat_container"></div>
+
+      
+
+      <form>
+        <textarea name="prompt" rows="1" cols="1" placeholder="Write your message..."></textarea>
+        <button type="submit"><img src="assets/send.svg" alt="send" />
+      </form>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

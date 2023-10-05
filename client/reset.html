@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <section class="container forms">
+        <div class="form login">
+          <div class="form-content">
+            <header>Reset password</header>
+            <form action="#">
+              <div class="field input-field">
+                <input id="logEmail" type="email" placeholder="Email" class="input" />
+              </div>
+              <div class="field button-field">
+                <button type="submit" id="resetButton">Submit</button>
+              </div>
+              </form>
+          </div>
+        </div>
+    </section>
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import {
+    getAuth,
+    sendPasswordResetEmail
+    } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyDK49YwWDAAdthygbsPNBrzurb58mPWeEg",
+        authDomain: "converse-ai-fcfd3.firebaseapp.com",
+        databaseURL: "https://converse-ai-fcfd3-default-rtdb.firebaseio.com",
+        projectId: "converse-ai-fcfd3",
+        storageBucket: "converse-ai-fcfd3.appspot.com",
+        messagingSenderId: "994019781672",
+        appId: "1:994019781672:web:4d14c559554835521c191d",
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+
+    const resetButton = document.getElementById("resetButton");
+
+    resetButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("logEmail").value;
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email)
+        .then(() => {
+            alert("Email sent");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+    });
+    
+</script>
+</html>
